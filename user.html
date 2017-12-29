@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/user.css"/>
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<!--导航--------------------------------------------->
+		<nav class="navbar navbar-default" role="navigation">
+		    <div class="container">
+		    <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse"
+		                data-target="#example-navbar-collapse">
+		            <span class="sr-only">切换导航</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand" href="#">后台管理</a>
+		    </div>
+		    <div class="collapse navbar-collapse" id="example-navbar-collapse">
+		        <ul class="nav navbar-nav">
+		            <li><a href="index.html"><span class="glyphicon glyphicon-home" style=" font-size: 15px;"></span> 后台首页</a></li>
+		            <li class="active"><a href="user.html"><span class="glyphicon glyphicon-user" style=" font-size: 15px;"></span> 用户管理</a></li>
+		            <li><a href="Management.html" class="dropdown-toggle">
+		                	<span class="glyphicon glyphicon-list-alt" style=" font-size: 15px;"></span>
+		                	  内容管理
+		                </a></li> 
+		            <li><a href="Label.html"><span class="glyphicon glyphicon-tags" style="font-size: 15px;"> </span> 标签管理</a></li>
+		        </ul>
+		        <ul class="nav navbar-nav navbar-right"> 
+		            
+		            <li class="dropdown">
+		                <a href="#" class="dropdown-toggle">
+		                	  admin<b class="caret"></b>
+		                </a>
+		                <ul class="dropdown-menu">
+		                    <li></li>
+		                    <li></li>
+		                    <li></li>
+		                    <li></li>
+		                    <li></li>
+		                </ul>
+		            </li>
+		            <li><a href="#"><span class="glyphicon glyphicon-off" style=" font-size: 15px;"></span> 登录</a></li> 
+		        </ul> 
+		    </div>
+		    </div>
+		</nav>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2">
+					<div class="btn-group-vertical">
+						<button type="button" class="btn btn-default btn-fault btn-primary">用户管理</button>
+						<button type="button" class="btn btn-default btn-fault">用户搜索</button>
+						<!--<button type="button" class="btn btn-default">添加用户</button>-->
+						<button class="btn btn-default btn-fault" data-toggle="modal" data-target="#myModal">
+							添加用户
+						</button>
+						<!-- 模态框（Modal） -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+											&times;
+										</button>
+										<h4 class="modal-title" id="myModalLabel">
+											添加用户
+										</h4>
+									</div>
+									<div class="modal-body">
+										<form role="form">
+											<div class="form-group">
+												<label for="name">用户名</label>
+											    <input type="text" class="form-control" id="name" placeholder="请输入用户名">
+											</div>
+											<div class="form-group">
+											    <label for="name">用户密码</label>
+											    <input type="password" class="form-control" id="name" placeholder="请输入用户密码">
+											</div>
+											<div class="form-group">
+											    <label for="name">确认用户密码</label>
+											    <input type="password" class="form-control" id="name" placeholder="请确认输入用户密码">
+											</div>
+											<div class="form-group">
+											    <label for="name">请输入用户邮箱</label>
+											    <input type="email" class="form-control" id="name" placeholder="请输入用户邮箱">
+											</div>
+											<div class="form-group">
+												<label for="name">所属用户组</label>
+												<select class="form-control">
+													<option>限制会员</option>
+													<option>新手上路</option>
+													<option>组册会员</option>
+													<option>中级会员</option>
+													<option>高级会员</option>
+												</select>
+											</div>
+											<!--<button type="submit" class="btn btn-default">提交</button>-->
+										</form>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+										</button>
+										<button type="button" class="btn btn-primary">
+											提交更改
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!--<div class="btn-group-vertical">
+							<ul class="dropdown-menu">
+								<li><a href="#">下拉链接 1</a></li>
+								<li><a href="#">下拉链接 2</a></li>
+								<li><a href="#">下拉链接 3</a></li>
+							</ul>
+						</div>-->
+					</div>
+				</div>
+				<div class="col-lg-10">
+					<h4>用户管理</h4>
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#guanli" data-toggle="tab">
+							用户列表</a></li>
+						<li><a href="#sousuo" data-toggle="tab">用户搜索</a></li>
+						<li data-toggle="modal" data-target="#myModal"><a href="#tianjia" data-toggle="tab">添加用户</a></li>
+						
+					</ul>
+					<div id="myTabContent" class="tab-content ">
+						<div class="tab-pane fade in active " id="guanli">   
+						    <table class="table">
+						        <thead>
+							     	<tr>
+							        	<th class="t1">ID</th>
+							        	<th class="t2">用户名</th>
+							        	<th class="t3">邮箱</th>
+							        	<th>操作</th>
+							      	</tr>
+								</thead>
+								<tbody>
+							    	<tr>
+							        	<td>1</td>
+							        	<td>张三</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+							    	<tr>
+							        	<td>2</td>
+							        	<td>李四</td>
+							        	<td>123456789@qingruan.com</td>
+							        	<td>
+							        		<button type="button" class="button">操作<b class="caret"></b></button>
+							        		
+							        	</td>
+							    	</tr>
+								</tbody>
+						    </table>
+						    <div class="btn-group">
+							    <button type="button" class="btn btn-default"><<</button>
+							    <button type="button" class="btn btn-default" style="background: #337ab7;color: white;">1</button>
+							    <button type="button" class="btn btn-default">2</button>
+							    <button type="button" class="btn btn-default">3</button>
+							    <button type="button" class="btn btn-default">4</button>
+							    <button type="button" class="btn btn-default">5</button>
+							    <button type="button" class="btn btn-default">6</button>
+							    <button type="button" class="btn btn-default">>></button>
+							</div>
+							<!--</div>-->
+						</div>
+						<div class="tab-pane fade panel panel-default" id="sousuo">
+							<div class="lert-info lnfo">
+								<div class="alert alert-info "><strong>技巧提示：</strong>支持模糊搜索和匹配搜索使用“代替”!</div>
+								<form role="form">
+									<div class="form-group">
+										<label for="name">用户名</label>
+									    <input type="text" class="form-control" id="name" placeholder="请输入用户名">
+									</div>
+									<div class="form-group">
+									    <label for="name">UID</label>
+									    <input type="text" class="form-control" id="name" placeholder="请输入UID">
+									</div>
+									<div class="form-group">
+										<label for="name">选择用户组</label>
+										<select class="form-control">
+											<option>限制会员</option>
+											<option>新手上路</option>
+											<option>组册会员</option>
+											<option>中级会员</option>
+											<option>高级会员</option>
+										</select>
+									</div>
+									<button type="submit" class="btn btn-default">提交</button>
+								</form>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="tianjia">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<p>Copyright&Aacute;2012-2015 www.qingruan.com ICP备xxxxxx号-4</p>
+		</div>
+		<script>
+		$(function(){
+			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+				// 获取已激活的标签页的名称
+				var activeTab = $(e.target).text(); 
+				// 获取前一个激活的标签页的名称
+				var previousTab = $(e.relatedTarget).text(); 
+				$(".active-tab span").html(activeTab);
+				$(".previous-tab span").html(previousTab);
+			});
+		});
+		</script>
+	</body>
+</html>
